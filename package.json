@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "jest": "^30.0.5"
+  },
+  "name": "crud-pet",
+  "version": "1.0.0",
+  "description": "CRUD Pet to practice the use of node express, Jest and JSON",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "test": "jest/test* --coverage"
+  },
+  "author": "Henrico Hosaki Silva",
+  "license": "ISC"
+}
