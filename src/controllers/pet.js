@@ -25,7 +25,7 @@ class controllerPet {
     delete(req, res){
         try {
             const id = parseInt(req.params.id, 10);
-            const removedPet = service.getOne(id); // captura o nome antes de deletar
+            const removedPet = service.getOne(id); 
             service.delete(id);
             const allPetsNames = service.getAll();
             res.status(200).json({ deletedPet: removedPet, allPetsNames});
@@ -39,7 +39,7 @@ class controllerPet {
             const petName = req.body.name;
             service.add(petName);
             const allPetsNames = service.getAll();
-            res.status(200).json({ petName, allPetsNames }); // retorna o nome adicionado
+            res.status(200).json({ petName, allPetsNames }); 
         } catch(e) {
             res.status(500).json({ e });
         }
@@ -51,7 +51,7 @@ class controllerPet {
             const petName = req.body.name;
             service.update(id, petName);
             const allPetsNames = service.getAll();
-            res.status(200).json({ updatePet: petName, allPetsNames }); // retorna o novo nome
+            res.status(200).json({ updatePet: petName, allPetsNames }); 
         } catch(e) {
             res.status(500).json({ e });
         }

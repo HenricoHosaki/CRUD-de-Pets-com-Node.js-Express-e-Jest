@@ -4,7 +4,7 @@ const ControllerPet = require('../controllers/pet');
 let controller;
 
 beforeEach(() => {
-  controller = new ControllerPet(); // cada teste começa com um controller zerado
+  controller = new ControllerPet(); 
 })
 
 describe("First test of controllerPet", () => {
@@ -44,7 +44,7 @@ describe("Third test of controllerPet", () => {
         const res = { status: () => ({ json: (data) => { responseData = data; } }) };
 
         controller.add(req, res);
-        console.log(responseData); // deve mostrar { name: 'Luan' }
+        console.log(responseData); 
         expect(responseData).toHaveProperty("petName", name);
     });
 });
