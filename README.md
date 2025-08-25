@@ -26,7 +26,7 @@ cd nome-do-projeto
 
 Instale as dependências:
 
-npm install
+npm i express | npm i jest --save-dev
 
 Inicie o servidor:
 
