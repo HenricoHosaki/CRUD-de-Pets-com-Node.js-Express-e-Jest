@@ -150,11 +150,7 @@ delete
 
 ## 💡 Próximos passos
 
-Melhorar a estrutura com autenticação e validações
-
-Adicionar mais testes avançados
-
-Criar um front-end básico (opcional)
+Criar um front-end básico
 
 
 ## 🔗 Testando com Postman
