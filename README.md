@@ -81,7 +81,7 @@ O servidor estará rodando em http://localhost:1000.
 ### 🐶 Rotas
 Método	Rota	Body (JSON)	Descrição	Exemplo de resposta
 
-GET /	-	Retorna todos os pets	json 
+GET /pets/	-	Retorna todos os pets	json 
 ```
 [ { "id": 1, "name": "Ant"
 , "breed": "Chow Chow",
@@ -95,7 +95,7 @@ GET /	-	Retorna todos os pets	json
  "tutor": "Ana",
  "birthDate": "2019-02-10" } ]
 ```
-GET /:id	-	Retorna um pet pelo ID	json 
+GET /pets/:id	-	Retorna um pet pelo ID	json 
 ```
 { "id": 1,
 "name": "Lupo",
@@ -105,7 +105,7 @@ GET /:id	-	Retorna um pet pelo ID	json
 "birthDate": "2021-05-12" }
 ```
 
-POST / Adicione um pet json
+POST /pets/ Adicione um pet json
 ```
 { "name":"Sheila",
 "breed":"Dalmata",
@@ -114,7 +114,7 @@ POST / Adicione um pet json
 "birthDate":"2021-10-25" }
 ```
 
-PUT /:id	Atualiza os dados de um pet json
+PUT /pets/:id	Atualiza os dados de um pet json
 ```
 { "name":"Horse",
  "breed":"Arabian",
@@ -123,7 +123,7 @@ PUT /:id	Atualiza os dados de um pet json
  "birthDate":"2019-02-10" }
 ```
 
-DELETE /:id	-	Remove um pet pelo ID json 
+DELETE /pets/:id	-	Remove um pet pelo ID json 
 
 ```{ "message": "Pet removido com sucesso" }```
 
