@@ -20,7 +20,7 @@ Jest (testes unitários)
 Postman (para testes manuais)
 
 
-### 💻 Pré-requisitos
+## 💻 Pré-requisitos
 
 Node.js instalado
 
@@ -29,7 +29,7 @@ XAMPP instalado e rodando (MySQL)
 NPM (gerenciador de pacotes do Node.js)
 
 
-### 🚀 Como rodar
+## 🚀 Como rodar
 1. Clone o repositório
    
 git clone https://github.com/HenricoHosaki/CRUD-de-Pets-com-Node.js-Express-e-Jest/
@@ -46,7 +46,7 @@ Abra o phpMyAdmin e crie um banco de dados chamado, por exemplo, petsdb.
 
 **Ajuste o arquivo de configuração do Sequelize (database.js) com os dados do seu MySQL:**
 
-const { Sequelize } = require('sequelize');
+```const { Sequelize } = require('sequelize');
 
 const db = new Sequelize('petsdb', 'root', '', {
 
@@ -56,7 +56,7 @@ const db = new Sequelize('petsdb', 'root', '', {
 });
 
 module.exports = { db };
-
+```
 
 Substitua 'root' e '' pelo usuário e senha do seu MySQL, se necessário.
 
@@ -70,24 +70,9 @@ npm install jest --save-dev
 
 |--------------------------------------------------------------------------------------------------------------------------|
 
-4. Inicialize o banco de dados
-
-Se estiver usando Sequelize, você pode sincronizar o banco de dados:
-
-const db = require('./database');
-
-const Pet = require('./repository/pet');
-
-db.sync()
-  .then(() => console.log('Banco de dados sincronizado'))
-  .catch(err => console.log(err));
-
-|--------------------------------------------------------------------------------------------------------------------------|
-
-5. Inicie o servidor
+4. Inicie o servidor
    
 node index.js
-
 
 O servidor estará rodando em http://localhost:1000.
 
@@ -96,17 +81,51 @@ O servidor estará rodando em http://localhost:1000.
 ### 🐶 Rotas
 Método	Rota	Body (JSON)	Descrição	Exemplo de resposta
 
-GET	/	-	Retorna todos os pets	{ "allPetNames": ["cat","dog"] }
+GET /	-	Retorna todos os pets	json 
+```
+[ { "id": 1, "name": "Ant"
+, "breed": "Chow Chow",
+ "color": "Brown",
+ "tutor": "Lucas",
+ "birthDate": "2021-05-12" },
+{ "id": 2,
+ "name": "Horse",
+ "breed": "Arabian",
+ "color": "White",
+ "tutor": "Ana",
+ "birthDate": "2019-02-10" } ]
+```
+GET /:id	-	Retorna um pet pelo ID	json 
+```
+{ "id": 1,
+"name": "Lupo",
+"breed": "Chow Chow",
+"color": "Brown",
+"tutor": "Lucas",
+"birthDate": "2021-05-12" }
+```
 
-GET	/:id	-	Retorna pet pelo ID	{ "petName": "dog" }
+POST / Adicione um pet json
+```
+{ "name":"Sheila",
+"breed":"Dalmata",
+"color":"White",
+"tutor":"Pedro",
+"birthDate":"2021-10-25" }
+```
 
-POST	/	{ "name":"Ant", "breed":"Chow Chow", "color":"Brown", "tutor":"Lucas", "birthDate":"2021-05-12" }	Adiciona um novo pet	{ "petName": "Ant", "breed":"Chow Chow", "color":"Brown", "tutor":"Lucas", "birthDate":"2021-05-12" }
+PUT /:id	Atualiza os dados de um pet json
+```
+{ "name":"Horse",
+ "breed":"Arabian",
+ "color":"White",
+ "tutor":"Ana",
+ "birthDate":"2019-02-10" }
+```
 
-PUT	/:id	{ "name":"Horse", "breed":"Arabian", "color":"White", "tutor":"Ana", "birthDate":"2019-02-10" }	Atualiza os dados de um pet	{ "updatePet": "Horse", "allPetNames": ["Leo","dog"] }
+DELETE /:id	-	Remove um pet pelo ID json 
 
-DELETE	/:id	-	Remove um pet pelo ID	{ "removedPet": "cat", "allPetNames": ["dog"] }
-
-**O :id agora é o ID do registro no banco de dados, e não mais o índice do array.**
+```{ "message": "Pet removido com sucesso" }```
 
 
 ## 🧪 Testes
@@ -142,7 +161,7 @@ Criar um front-end básico (opcional)
 
 Adicionar pet (POST)
 Body JSON:
-
+```
 {
   "name": "Ant",
   "breed": "Chow Chow",
@@ -150,11 +169,11 @@ Body JSON:
   "tutor": "Lucas",
   "birthDate": "2021-05-12"
 }
-
+```
 
 Atualizar pet (PUT)
 Body JSON:
-
+```
 {
   "name": "Horse",
   "breed": "Arabian",
@@ -162,7 +181,7 @@ Body JSON:
   "tutor": "Ana",
   "birthDate": "2019-02-10"
 }
-
+```
 
 Buscar pet específico (GET)
 URL: /animal/name/1
