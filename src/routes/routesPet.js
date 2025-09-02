@@ -4,10 +4,10 @@ const ControllerPet = require ("../controllers/controllerPet")
 
 const controllerP = new ControllerPet();
 
-router.get("/", controllerP.FindAll)
-router.get("/:index", controllerP.FindById)
-router.delete("/:index", controllerP.Delete)
-router.post("/", controllerP.Create)
-router.put("/:index", controllerP.Update)
+router.get("/pets/", controllerP.FindAll)
+router.get("/pets/:id", controllerP.FindById)
+router.delete("/pets/:id", controllerP.Delete)
+router.post("/pets/", controllerP.Create)
+router.put("pets/:id", controllerP.Update)
 
 module.exports = router;
